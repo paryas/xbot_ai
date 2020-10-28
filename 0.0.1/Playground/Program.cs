@@ -1,4 +1,4 @@
-﻿using HtmlAgilityPack;
+﻿//using HtmlAgilityPack;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -16,9 +16,12 @@ namespace Playground
 
 			var startDate = Utility.GetFirstDayOfCurrentWeek();
 			var endDate = Utility.GetLastDayOfCurrentWeek();
+			//var calendarType = CalendarType.Metal;
+			var calendarType = CalendarType.Forex;
 
-
-			var lines = File.ReadAllLines(@"C:\Users\Pouyan\Downloads\mm_calendar_thisweek.csv").ToList();
+			//var link = @"C:\Users\Pouyan\Downloads\mm_calendar_thisweek.csv";
+			var link = @"C:\Users\Pouyan\Downloads\ff_calendar_thisweek.csv";
+			var lines = File.ReadAllLines(link).ToList();
 			lines.RemoveAt(0);
 
 			var forexFactoryCalendarList = new List<ForexFactoryCalendarItem>();
@@ -27,7 +30,14 @@ namespace Playground
 				string[] values = line.Split(',');
 				var forexFactoryCalendarItem = new ForexFactoryCalendarItem();
 				forexFactoryCalendarItem.Title = values[0];
-				forexFactoryCalendarItem.Country = values[1];
+				if (calendarType == CalendarType.Metal)
+				{
+					forexFactoryCalendarItem.Country = values[1].ToCountryCode();
+				}
+				else if (calendarType == CalendarType.Forex)
+				{
+					forexFactoryCalendarItem.Currency = values[1].ToCurrencyCode();
+				}
 				forexFactoryCalendarItem.DateTime = Convert.ToDateTime(values[2] + " " + values[3]);
 				forexFactoryCalendarItem.Impact = values[4].ToImpact();
 				forexFactoryCalendarItem.Forecast = values[5];
@@ -35,6 +45,9 @@ namespace Playground
 
 				forexFactoryCalendarList.Add(forexFactoryCalendarItem);
 			}
+
+			//var unknown = forexFactoryCalendarList.Where(s => s.Country == CountryCode.Unknown).ToList();
+			var unknown = forexFactoryCalendarList.Where(s => s.Currency == CurrencyCode.Unknown).ToList();
 
 			#region HtmlAgilityPack
 			/*
