@@ -1,5 +1,6 @@
 ﻿//using HtmlAgilityPack;
 using Microsoft.VisualBasic;
+using Playground.DTO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,19 +17,19 @@ namespace Playground
 
 			var startDate = Utility.GetFirstDayOfCurrentWeek();
 			var endDate = Utility.GetLastDayOfCurrentWeek();
-			//var calendarType = CalendarType.Metal;
-			var calendarType = CalendarType.Forex;
+			var calendarType = CalendarType.Metal;
+			//var calendarType = CalendarType.Forex;
 
-			//var link = @"C:\Users\Pouyan\Downloads\mm_calendar_thisweek.csv";
-			var link = @"C:\Users\Pouyan\Downloads\ff_calendar_thisweek.csv";
+			var link = @"C:\Users\Pouyan\Downloads\mm_calendar_thisweek.csv";
+			//var link = @"C:\Users\Pouyan\Downloads\ff_calendar_thisweek.csv";
 			var lines = File.ReadAllLines(link).ToList();
 			lines.RemoveAt(0);
 
-			var forexFactoryCalendarList = new List<ForexFactoryCalendarItem>();
+			var calendarDataList = new List<ForexFactoryCalendarData>();
 			foreach (var line in lines)
 			{
 				string[] values = line.Split(',');
-				var forexFactoryCalendarItem = new ForexFactoryCalendarItem();
+				var forexFactoryCalendarItem = new ForexFactoryCalendarData();
 				forexFactoryCalendarItem.Title = values[0];
 				if (calendarType == CalendarType.Metal)
 				{
@@ -43,11 +44,15 @@ namespace Playground
 				forexFactoryCalendarItem.Forecast = values[5];
 				forexFactoryCalendarItem.Previous = values[6];
 
-				forexFactoryCalendarList.Add(forexFactoryCalendarItem);
+				calendarDataList.Add(forexFactoryCalendarItem);
 			}
 
+			var processor = new Processor();
+			var calendarObject = new CalendarObject { CalendarDataList = calendarDataList, Source = CalendarSource.ForexFactory, Type = calendarType };
+			var processedData = processor.ProcessCalendarData(calendarObject, CountryCode.US, CurrencyCode.Unknown);
+
 			//var unknown = forexFactoryCalendarList.Where(s => s.Country == CountryCode.Unknown).ToList();
-			var unknown = forexFactoryCalendarList.Where(s => s.Currency == CurrencyCode.Unknown).ToList();
+			//var unknown = forexFactoryCalendarList.Where(s => s.Currency == CurrencyCode.Unknown).ToList();
 
 			#region HtmlAgilityPack
 			/*

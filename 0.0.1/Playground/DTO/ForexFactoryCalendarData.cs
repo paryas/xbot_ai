@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Playground
+namespace Playground.DTO
 {
-	public class ForexFactoryCalendarItem
+	public class ForexFactoryCalendarData
 	{
 		public string Title { get; set; }
 		public CountryCode Country { get; set; }

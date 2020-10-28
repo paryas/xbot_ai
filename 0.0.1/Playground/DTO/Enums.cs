@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Playground
+namespace Playground.DTO
 {
 	public enum Impact
 	{
@@ -12,7 +12,7 @@ namespace Playground
 		High,
 		Holiday,
 	}
-	
+
 	public enum ProcessedImpact
 	{
 		None = 0,
@@ -22,7 +22,12 @@ namespace Playground
 		High = 4,
 		VeryHigh = 5,
 		Severe = 6,
-		StopTrading =7,
+		Holliday = 7,
+	}
+
+	public enum CalendarSource
+	{
+		ForexFactory,
 	}
 
 	public enum CalendarType
