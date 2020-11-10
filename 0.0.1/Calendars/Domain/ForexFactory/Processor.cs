@@ -9,11 +9,22 @@ namespace My.Calendars.Domain.ForexFactory
 {
 	public class Processor
 	{
-		#region Forex Strategies
-		public void ProcessForexCalendarData_StrategyOne(List<ForexFactoryCalendarData> calendarDataList)
-		{
+		private ProcessorStrategy _ProcessorStrategy;
+		CalendarType _calendarType;
 
-		} 
+		public Processor(CalendarType calendarType, ProcessorStrategy processorStrategy)
+		{
+			_ProcessorStrategy = processorStrategy;
+			_calendarType = calendarType;
+		}
+
+		#region Forex Strategies
+		public Dictionary<DateTime, bool> ProcessForexCalendarData_StrategyOne(List<ForexFactoryCalendarData> calendarDataList)
+		{
+			Dictionary<DateTime, bool> result = new Dictionary<DateTime, bool>();
+
+			return result;
+		}
 		#endregion
 
 		/*

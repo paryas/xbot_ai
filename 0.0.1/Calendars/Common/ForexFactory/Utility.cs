@@ -8,6 +8,17 @@ namespace My.Calendars.Common.ForexFactory
 {
 	public static class Utility
 	{
+		public static ProcessorStrategy ToProcessorStrategy(this string input)
+		{
+			switch (input.ToLower())
+			{
+				case "strategyone":
+					return ProcessorStrategy.StrategyOne;
+				default:
+					return ProcessorStrategy.Unknown;
+			}
+		}
+
 		public static Impact ToImpact(this string input)
 		{
 			switch (input.ToLower())
@@ -40,6 +51,8 @@ namespace My.Calendars.Common.ForexFactory
 		{
 			switch (input.ToLower())
 			{
+				case "all":
+					return CountryCode.All;
 				case "ww":
 					return CountryCode.WW;
 				case "ge":

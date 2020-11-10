@@ -6,6 +6,7 @@ namespace My.Calendars.DTO.ForexFactory
 {
 	public class ForexFactoryCalendarData
 	{
+		public CalendarType CalendarType { get; set; }
 		public string Title { get; set; }
 		public CountryCode Country { get; set; }
 		public CurrencyCode Currency { get; set; }

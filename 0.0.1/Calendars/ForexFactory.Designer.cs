@@ -32,25 +32,27 @@
 			this.cboCalendarType = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.cboFirstPair = new System.Windows.Forms.ComboBox();
-			this.cboSecondPair = new System.Windows.Forms.ComboBox();
+			this.cboCurrencyOne = new System.Windows.Forms.ComboBox();
+			this.cboCurrencyTwo = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
-			this.cboFirstCountry = new System.Windows.Forms.ComboBox();
-			this.cboSecondCountry = new System.Windows.Forms.ComboBox();
+			this.cboCountryOne = new System.Windows.Forms.ComboBox();
+			this.cboCountryTwo = new System.Windows.Forms.ComboBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.btnFolder = new System.Windows.Forms.Button();
-			this.txtFolder = new System.Windows.Forms.TextBox();
+			this.txtProcessedFolderAddress = new System.Windows.Forms.TextBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.cboStrategy = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// btnUpload
 			// 
-			this.btnUpload.Location = new System.Drawing.Point(124, 185);
+			this.btnUpload.Location = new System.Drawing.Point(124, 213);
 			this.btnUpload.Name = "btnUpload";
 			this.btnUpload.Size = new System.Drawing.Size(162, 64);
 			this.btnUpload.TabIndex = 0;
-			this.btnUpload.Text = "Upload";
+			this.btnUpload.Text = "Upload and Process";
 			this.btnUpload.UseVisualStyleBackColor = true;
 			this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
 			// 
@@ -81,21 +83,21 @@
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Forx Pairs:";
 			// 
-			// cboFirstPair
+			// cboCurrencyOne
 			// 
-			this.cboFirstPair.FormattingEnabled = true;
-			this.cboFirstPair.Location = new System.Drawing.Point(128, 35);
-			this.cboFirstPair.Name = "cboFirstPair";
-			this.cboFirstPair.Size = new System.Drawing.Size(76, 23);
-			this.cboFirstPair.TabIndex = 1;
+			this.cboCurrencyOne.FormattingEnabled = true;
+			this.cboCurrencyOne.Location = new System.Drawing.Point(128, 35);
+			this.cboCurrencyOne.Name = "cboCurrencyOne";
+			this.cboCurrencyOne.Size = new System.Drawing.Size(76, 23);
+			this.cboCurrencyOne.TabIndex = 1;
 			// 
-			// cboSecondPair
+			// cboCurrencyTwo
 			// 
-			this.cboSecondPair.FormattingEnabled = true;
-			this.cboSecondPair.Location = new System.Drawing.Point(210, 35);
-			this.cboSecondPair.Name = "cboSecondPair";
-			this.cboSecondPair.Size = new System.Drawing.Size(76, 23);
-			this.cboSecondPair.TabIndex = 1;
+			this.cboCurrencyTwo.FormattingEnabled = true;
+			this.cboCurrencyTwo.Location = new System.Drawing.Point(210, 35);
+			this.cboCurrencyTwo.Name = "cboCurrencyTwo";
+			this.cboCurrencyTwo.Size = new System.Drawing.Size(76, 23);
+			this.cboCurrencyTwo.TabIndex = 1;
 			// 
 			// label3
 			// 
@@ -106,28 +108,28 @@
 			this.label3.TabIndex = 3;
 			this.label3.Text = "Metal Countries:";
 			// 
-			// cboFirstCountry
+			// cboCountryOne
 			// 
-			this.cboFirstCountry.Enabled = false;
-			this.cboFirstCountry.FormattingEnabled = true;
-			this.cboFirstCountry.Location = new System.Drawing.Point(128, 64);
-			this.cboFirstCountry.Name = "cboFirstCountry";
-			this.cboFirstCountry.Size = new System.Drawing.Size(76, 23);
-			this.cboFirstCountry.TabIndex = 1;
+			this.cboCountryOne.Enabled = false;
+			this.cboCountryOne.FormattingEnabled = true;
+			this.cboCountryOne.Location = new System.Drawing.Point(128, 64);
+			this.cboCountryOne.Name = "cboCountryOne";
+			this.cboCountryOne.Size = new System.Drawing.Size(76, 23);
+			this.cboCountryOne.TabIndex = 1;
 			// 
-			// cboSecondCountry
+			// cboCountryTwo
 			// 
-			this.cboSecondCountry.Enabled = false;
-			this.cboSecondCountry.FormattingEnabled = true;
-			this.cboSecondCountry.Location = new System.Drawing.Point(210, 64);
-			this.cboSecondCountry.Name = "cboSecondCountry";
-			this.cboSecondCountry.Size = new System.Drawing.Size(76, 23);
-			this.cboSecondCountry.TabIndex = 1;
+			this.cboCountryTwo.Enabled = false;
+			this.cboCountryTwo.FormattingEnabled = true;
+			this.cboCountryTwo.Location = new System.Drawing.Point(210, 64);
+			this.cboCountryTwo.Name = "cboCountryTwo";
+			this.cboCountryTwo.Size = new System.Drawing.Size(76, 23);
+			this.cboCountryTwo.TabIndex = 1;
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(13, 125);
+			this.label4.Location = new System.Drawing.Point(13, 153);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(113, 15);
 			this.label4.TabIndex = 4;
@@ -135,7 +137,7 @@
 			// 
 			// btnFolder
 			// 
-			this.btnFolder.Location = new System.Drawing.Point(211, 150);
+			this.btnFolder.Location = new System.Drawing.Point(211, 178);
 			this.btnFolder.Name = "btnFolder";
 			this.btnFolder.Size = new System.Drawing.Size(75, 23);
 			this.btnFolder.TabIndex = 5;
@@ -143,18 +145,18 @@
 			this.btnFolder.UseVisualStyleBackColor = true;
 			this.btnFolder.Click += new System.EventHandler(this.btnFolder_Click);
 			// 
-			// txtFolder
+			// txtProcessedFolderAddress
 			// 
-			this.txtFolder.Enabled = false;
-			this.txtFolder.Location = new System.Drawing.Point(16, 150);
-			this.txtFolder.Name = "txtFolder";
-			this.txtFolder.Size = new System.Drawing.Size(188, 23);
-			this.txtFolder.TabIndex = 6;
+			this.txtProcessedFolderAddress.Enabled = false;
+			this.txtProcessedFolderAddress.Location = new System.Drawing.Point(16, 178);
+			this.txtProcessedFolderAddress.Name = "txtProcessedFolderAddress";
+			this.txtProcessedFolderAddress.Size = new System.Drawing.Size(188, 23);
+			this.txtProcessedFolderAddress.TabIndex = 6;
 			// 
 			// button1
 			// 
 			this.button1.Enabled = false;
-			this.button1.Location = new System.Drawing.Point(128, 97);
+			this.button1.Location = new System.Drawing.Point(128, 125);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(158, 23);
 			this.button1.TabIndex = 8;
@@ -164,27 +166,46 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(12, 101);
+			this.label5.Location = new System.Drawing.Point(12, 127);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(75, 15);
 			this.label5.TabIndex = 7;
 			this.label5.Text = "Set Variables:";
 			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(12, 99);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(53, 15);
+			this.label6.TabIndex = 9;
+			this.label6.Text = "Strategy:";
+			// 
+			// cboStrategy
+			// 
+			this.cboStrategy.FormattingEnabled = true;
+			this.cboStrategy.Location = new System.Drawing.Point(128, 93);
+			this.cboStrategy.Name = "cboStrategy";
+			this.cboStrategy.Size = new System.Drawing.Size(158, 23);
+			this.cboStrategy.TabIndex = 10;
+			// 
 			// ForexFactory
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(297, 262);
+			this.ClientSize = new System.Drawing.Size(297, 319);
+			this.Controls.Add(this.cboStrategy);
+			this.Controls.Add(this.label6);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label5);
-			this.Controls.Add(this.txtFolder);
+			this.Controls.Add(this.txtProcessedFolderAddress);
 			this.Controls.Add(this.btnFolder);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.cboSecondCountry);
-			this.Controls.Add(this.cboFirstCountry);
+			this.Controls.Add(this.cboCountryTwo);
+			this.Controls.Add(this.cboCountryOne);
 			this.Controls.Add(this.label3);
-			this.Controls.Add(this.cboSecondPair);
-			this.Controls.Add(this.cboFirstPair);
+			this.Controls.Add(this.cboCurrencyTwo);
+			this.Controls.Add(this.cboCurrencyOne);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.cboCalendarType);
@@ -204,15 +225,17 @@
 		private System.Windows.Forms.ComboBox cboCalendarType;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.ComboBox cboFirstPair;
-		private System.Windows.Forms.ComboBox cboSecondPair;
+		private System.Windows.Forms.ComboBox cboCurrencyOne;
+		private System.Windows.Forms.ComboBox cboCurrencyTwo;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.ComboBox cboFirstCountry;
-		private System.Windows.Forms.ComboBox cboSecondCountry;
+		private System.Windows.Forms.ComboBox cboCountryOne;
+		private System.Windows.Forms.ComboBox cboCountryTwo;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button btnFolder;
-		private System.Windows.Forms.TextBox txtFolder;
+		private System.Windows.Forms.TextBox txtProcessedFolderAddress;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.ComboBox cboStrategy;
 	}
 }

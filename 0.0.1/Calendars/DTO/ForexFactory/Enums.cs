@@ -4,6 +4,12 @@ using System.Text;
 
 namespace My.Calendars.DTO.ForexFactory
 {
+	public enum ProcessorStrategy
+	{
+		Unknown,
+		StrategyOne,
+	}
+
 	public enum Impact
 	{
 		Unknown,
@@ -11,23 +17,6 @@ namespace My.Calendars.DTO.ForexFactory
 		Medium,
 		High,
 		Holiday,
-	}
-
-	public enum ProcessedImpact
-	{
-		None = 0,
-		VeryLow = 1,
-		Low = 2,
-		Medium = 3,
-		High = 4,
-		VeryHigh = 5,
-		Severe = 6,
-		Holliday = 7,
-	}
-
-	public enum CalendarSource
-	{
-		ForexFactory,
 	}
 
 	public enum CalendarType
@@ -53,6 +42,7 @@ namespace My.Calendars.DTO.ForexFactory
 
 	public enum CountryCode
 	{
+		All,
 		AU, //Australia
 		BZ, //Brazil
 		CA, //Canada
@@ -74,4 +64,23 @@ namespace My.Calendars.DTO.ForexFactory
 		WW, //World Wide
 		Unknown,
 	}
+
+	#region Removed
+	//public enum ProcessedImpact
+	//{
+	//	None = 0,
+	//	VeryLow = 1,
+	//	Low = 2,
+	//	Medium = 3,
+	//	High = 4,
+	//	VeryHigh = 5,
+	//	Severe = 6,
+	//	Holliday = 7,
+	//}
+
+	//public enum CalendarSource
+	//{
+	//	ForexFactory,
+	//}
+	#endregion
 }
