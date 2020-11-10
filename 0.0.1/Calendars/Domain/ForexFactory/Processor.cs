@@ -9,6 +9,14 @@ namespace My.Calendars.Domain.ForexFactory
 {
 	public class Processor
 	{
+		#region Forex Strategies
+		public void ProcessForexCalendarData_StrategyOne(List<ForexFactoryCalendarData> calendarDataList)
+		{
+
+		} 
+		#endregion
+
+		/*
 		public List<ProcessedCalendarData> ProcessCalendarData(CalendarObject calendarObject, CountryCode counryCodeToBeProcessed, CurrencyCode currencyCodeToBeProcessed)
 		{
 			List<ProcessedCalendarData> result = null;
@@ -35,5 +43,6 @@ namespace My.Calendars.Domain.ForexFactory
 
 			return result;
 		}
+		*/
 	}
 }
