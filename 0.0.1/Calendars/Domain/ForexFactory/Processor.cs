@@ -23,6 +23,11 @@ namespace My.Calendars.Domain.ForexFactory
 		{
 			Dictionary<DateTime, bool> result = new Dictionary<DateTime, bool>();
 
+			foreach (var item in calendarDataList)
+			{
+
+			}
+
 			return result;
 		}
 		#endregion
