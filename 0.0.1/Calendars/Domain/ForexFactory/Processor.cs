@@ -9,9 +9,6 @@ namespace My.Calendars.Domain.ForexFactory
 {
 	public class Processor
 	{
-
-
-
 		public List<ProcessedCalendarData> ProcessCalendarData(CalendarObject calendarObject, CountryCode counryCodeToBeProcessed, CurrencyCode currencyCodeToBeProcessed)
 		{
 			List<ProcessedCalendarData> result = null;

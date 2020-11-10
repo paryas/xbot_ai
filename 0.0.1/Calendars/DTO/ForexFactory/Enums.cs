@@ -32,46 +32,46 @@ namespace My.Calendars.DTO.ForexFactory
 
 	public enum CalendarType
 	{
-		Metal,
 		Forex,
+		Metal,
 	}
 
 	public enum CurrencyCode
 	{
-		Unknown,
 		All,
-		USD,
+		AUD,
+		CAD,
+		CHF,
+		CNY,
+		EUR,
+		GBP,
 		JPY,
 		NZD,
-		EUR,
-		AUD,
-		CHF,
-		GBP,
-		CNY,
-		CAD,
+		USD,
+		Unknown,
 	}
 
 	public enum CountryCode
 	{
-		Unknown,
-		GE, //Germany
-		UK, //United Kingdom
-		MX, //Mexico
-		US, //United States
-		SZ, //Switzerland
-		JN, //Japan
-		SP, //Spain
-		EZ, //Euro Zone
 		AU, //Australia
-		SA, //South Africa
-		FR, //France
-		IT, //Italy
 		BZ, //Brazil
-		CH, //China
-		WW, //World Wide
-		RU, //Russia
-		IN, //India
-		NZ, //New Zeland
 		CA, //Canada
+		CH, //China
+		EZ, //Euro Zone
+		FR, //France
+		GE, //Germany
+		IN, //India
+		IT, //Italy
+		JN, //Japan
+		MX, //Mexico
+		NZ, //New Zeland
+		RU, //Russia
+		SA, //South Africa
+		SP, //Spain
+		SZ, //Switzerland
+		UK, //United Kingdom
+		US, //United States
+		WW, //World Wide
+		Unknown,
 	}
 }
