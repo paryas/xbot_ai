@@ -12,6 +12,7 @@ namespace My.Calendars.DTO.ForexFactory
 		public CurrencyCode Currency { get; set; }
 		public DateTime DateTime { get; set; }
 		public Impact Impact { get; set; }
+		public bool AllDayImpact { get; set; }
 		public string Forecast { get; set; }
 		public string Previous { get; set; }
 	}

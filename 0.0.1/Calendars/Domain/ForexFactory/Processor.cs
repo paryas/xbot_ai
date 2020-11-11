@@ -1,4 +1,5 @@
-﻿using My.Calendars.DTO.ForexFactory;
+﻿using My.Calendars.DTO;
+using My.Calendars.DTO.ForexFactory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,19 @@ namespace My.Calendars.Domain.ForexFactory
 		public Dictionary<DateTime, bool> ProcessForexCalendarData_StrategyOne(List<ForexFactoryCalendarData> calendarDataList)
 		{
 			Dictionary<DateTime, bool> result = new Dictionary<DateTime, bool>();
+
+			var noTradeDayList = calendarDataList.Where(s => s.Impact == Impact.High).GroupBy(s => new DateTime(s.DateTime.Year, s.DateTime.Month, s.DateTime.Day))
+				.Select(s => new { s.Key, Count = s.Count() }).Where(s => s.Count >= DefaultVariables.NumberOfRedFlagPerDay_ToStopTradingTheSameDayAndTheDayBefore)
+				.Select(s => s.Key).ToList();
+
+			var holdaylist = calendarDataList.Where(s => s.Impact == Impact.Holiday).Select(s => new DateTime(s.DateTime.Year, s.DateTime.Month, s.DateTime.Day)).ToList();
+
+			var allDaysImpactList = calendarDataList.Where(s => s.AllDayImpact).Select(s => new DateTime(s.DateTime.Year, s.DateTime.Month, s.DateTime.Day)).ToList();
+
+			calendarDataList.RemoveAll(s => s.Impact == Impact.Holiday);
+			calendarDataList.RemoveAll(s => s.AllDayImpact);
+
+			var hourlyImpactList = calendarDataList.Select(s => s.DateTime).ToList();
 
 			foreach (var item in calendarDataList)
 			{

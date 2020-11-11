@@ -36,7 +36,7 @@ namespace My.Calendars
 			var currencyOne = cboCurrencyOne.Text;
 			var currencyTwo = cboCurrencyTwo.Text;
 			var countryOne = cboCountryOne.Text;
-			var countryTwo = cboCountryTwo.Text; 
+			var countryTwo = cboCountryTwo.Text;
 			#endregion
 
 			#region Load the calendar file
@@ -45,9 +45,11 @@ namespace My.Calendars
 				String path = dialog.FileName; // get name of file
 				List<string> lines = null;
 				if (calendarType == CalendarType.Forex)
-					lines = File.ReadAllLines(path).Where(s => s.ToLower().Contains(currencyOne.ToLower()) || s.ToLower().Contains(currencyTwo.ToLower()) || s.ToLower().Contains(CurrencyCode.All.ToString().ToLower())).ToList();
+					lines = File.ReadAllLines(path).Where(s => s.ToLower().Contains(currencyOne.ToLower()) || s.ToLower().Contains(currencyTwo.ToLower()) || s.ToLower().Contains(CurrencyCode.All.ToString().ToLower()))
+						.Where(s => s.ToLower().Contains(Impact.High.ToString().ToLower()) || s.ToLower().Contains(Impact.Holiday.ToString().ToLower())).ToList();
 				else if (calendarType == CalendarType.Metal)
-					lines = File.ReadAllLines(path).Where(s => s.ToLower().Contains(countryOne.ToLower()) || s.ToLower().Contains(countryTwo.ToLower()) || s.ToLower().Contains(CountryCode.All.ToString().ToLower())).ToList();
+					lines = File.ReadAllLines(path).Where(s => s.ToLower().Contains(countryOne.ToLower()) || s.ToLower().Contains(countryTwo.ToLower()) || s.ToLower().Contains(CountryCode.All.ToString().ToLower()))
+						.Where(s => s.ToLower().Contains(Impact.High.ToString().ToLower()) || s.ToLower().Contains(Impact.Holiday.ToString().ToLower())).ToList();
 
 				foreach (var line in lines)
 				{
@@ -65,7 +67,16 @@ namespace My.Calendars
 						forexFactoryCalendarItem.Currency = CurrencyCode.Unknown;
 					}
 					forexFactoryCalendarItem.CalendarType = calendarType;
-					forexFactoryCalendarItem.DateTime = Convert.ToDateTime(values[2] + " " + values[3]);
+					if (values[3].ToLower().Contains("all day"))
+					{
+						forexFactoryCalendarItem.DateTime = Convert.ToDateTime(values[2]);
+						forexFactoryCalendarItem.AllDayImpact = true;
+					}
+					else
+					{
+						forexFactoryCalendarItem.DateTime = Convert.ToDateTime(values[2] + " " + values[3]);
+						forexFactoryCalendarItem.AllDayImpact = false;
+					}
 					forexFactoryCalendarItem.Impact = values[4].ToImpact();
 					forexFactoryCalendarItem.Forecast = values[5];
 					forexFactoryCalendarItem.Previous = values[6];
