@@ -1,6 +1,6 @@
 ﻿namespace My.Calendars
 {
-	partial class ForexFactory
+	partial class ForexFactoryFrom
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -40,7 +40,7 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.btnFolder = new System.Windows.Forms.Button();
 			this.txtProcessedFolderAddress = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnProperties = new System.Windows.Forms.Button();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.cboStrategy = new System.Windows.Forms.ComboBox();
@@ -79,9 +79,9 @@
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(13, 43);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(61, 15);
+			this.label2.Size = new System.Drawing.Size(67, 15);
 			this.label2.TabIndex = 3;
-			this.label2.Text = "Forx Pairs:";
+			this.label2.Text = "Forex Pairs:";
 			// 
 			// cboCurrencyOne
 			// 
@@ -153,24 +153,24 @@
 			this.txtProcessedFolderAddress.Size = new System.Drawing.Size(188, 23);
 			this.txtProcessedFolderAddress.TabIndex = 6;
 			// 
-			// button1
+			// btnProperties
 			// 
-			this.button1.Enabled = false;
-			this.button1.Location = new System.Drawing.Point(128, 125);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(158, 23);
-			this.button1.TabIndex = 8;
-			this.button1.Text = "Variables";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnProperties.Location = new System.Drawing.Point(128, 125);
+			this.btnProperties.Name = "btnProperties";
+			this.btnProperties.Size = new System.Drawing.Size(158, 23);
+			this.btnProperties.TabIndex = 8;
+			this.btnProperties.Text = "Properties";
+			this.btnProperties.UseVisualStyleBackColor = true;
+			this.btnProperties.Click += new System.EventHandler(this.btnProperties_Click);
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Location = new System.Drawing.Point(12, 127);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(75, 15);
+			this.label5.Size = new System.Drawing.Size(82, 15);
 			this.label5.TabIndex = 7;
-			this.label5.Text = "Set Variables:";
+			this.label5.Text = "Set Properties:";
 			// 
 			// label6
 			// 
@@ -189,14 +189,14 @@
 			this.cboStrategy.Size = new System.Drawing.Size(158, 23);
 			this.cboStrategy.TabIndex = 10;
 			// 
-			// ForexFactory
+			// ForexFactoryFrom
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(297, 319);
 			this.Controls.Add(this.cboStrategy);
 			this.Controls.Add(this.label6);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btnProperties);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.txtProcessedFolderAddress);
 			this.Controls.Add(this.btnFolder);
@@ -211,7 +211,7 @@
 			this.Controls.Add(this.cboCalendarType);
 			this.Controls.Add(this.btnUpload);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-			this.Name = "ForexFactory";
+			this.Name = "ForexFactoryFrom";
 			this.Text = "ForexFactory";
 			this.Load += new System.EventHandler(this.ForexFactory_Load);
 			this.ResumeLayout(false);
@@ -233,7 +233,7 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button btnFolder;
 		private System.Windows.Forms.TextBox txtProcessedFolderAddress;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnProperties;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.ComboBox cboStrategy;

@@ -15,9 +15,9 @@ using System.Windows.Forms;
 
 namespace My.Calendars
 {
-	public partial class ForexFactory : Form
+	public partial class ForexFactoryFrom : Form
 	{
-		public ForexFactory()
+		public ForexFactoryFrom()
 		{
 			InitializeComponent();
 		}
@@ -155,6 +155,12 @@ namespace My.Calendars
 					txtProcessedFolderAddress.Text = fbd.SelectedPath;
 				}
 			}
+		}
+
+		private void btnProperties_Click(object sender, EventArgs e)
+		{
+			var frm = new PropertiesForm();
+			frm.ShowDialog();
 		}
 	}
 }
